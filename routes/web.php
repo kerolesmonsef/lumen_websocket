@@ -13,6 +13,15 @@
 |
 */
 
+use App\Events\SendMessageEvent;
+use App\Http\Controllers\TestController;
+
 $router->get('/', function () use ($router) {
+    event(new SendMessageEvent("this is test message"));
     return $router->app->version();
+});
+
+
+$router->get("/test",function (){
+    action([])->action();
 });

@@ -49,9 +49,7 @@ $app->singleton(
 );
 
 
-/////////////////////////////////////////////////////
-$app->register(\App\Providers\WebSocketsServiceProvider::class);
-$app->register(\Illuminate\Broadcasting\BroadcastServiceProvider::class);
+///////////////////////////////////////////////////// update
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +63,7 @@ $app->register(\Illuminate\Broadcasting\BroadcastServiceProvider::class);
 */
 
 $app->configure('app');
-
+$app->configure('websockets');
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -96,9 +94,12 @@ $app->configure('app');
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
+ $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(\App\Providers\WebSocketsServiceProvider::class);
+//$app->register(\Illuminate\Broadcasting\BroadcastServiceProvider::class);
+$app->withFacades();
 
 /*
 |--------------------------------------------------------------------------
